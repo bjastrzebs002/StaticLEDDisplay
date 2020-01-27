@@ -4,8 +4,8 @@
 #include "i2c.h"
 #include "extra.h"
 
-#define MMA8451_I2C_ADDRESS 0x1D<<1 // gives 0x3A = read or 0x3B = write
-
+#define MMA8451_I2C_ADDRESS 0x3A // gives 0x3A = read or 0x3B = write
+#define XYZ_DATA_CFG 0x0E
 #define STATUS_REG 0x00
 #define OUT_X_MSB_REG 0x01
 #define OUT_X_LSB_REG 0x02

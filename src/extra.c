@@ -1,6 +1,7 @@
 #include "extra.h"
 #include "mma8451.h"
 #include <math.h>
+#include <stdio.h>
 void delay(uint32_t value){
 	
 	uint32_t delay_val, x;
@@ -12,16 +13,15 @@ void delay(uint32_t value){
 
 
 uint8_t get_array_index(uint8_t accel_read){ // function to calculate which column shoub be turned on
-	float pixel_div = 42/64;
+	float_t pixel_div = 0.66;
 	uint8_t index;
 	if(accel_read <= 0x40 && accel_read >= 0x00){
-		index = 42 - round(accel_read * pixel_div);
+		index = 42 - (accel_read * pixel_div);
 	} else {
 		accel_read = accel_read - 192;
-		index = 42 + round(accel_read * pixel_div);
+		index = 84 - (accel_read * pixel_div);
 	}
 	
 	return index;
 }
 
-	

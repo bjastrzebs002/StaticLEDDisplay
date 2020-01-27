@@ -111,9 +111,12 @@ void print_vertical_line(void){
 
 void clear_all_columns(void){
 	uint8_t i;
-	move_XY(0, 0);
-	for(i=0; i<84; i++){
-		sendData(0x00);
+	uint8_t j;
+	for(j = 0; j<6; j++){
+		move_XY(0, j);
+		for(i=0; i<84; i++){
+			sendData(0x00);
+		}
 	}
 }
 
